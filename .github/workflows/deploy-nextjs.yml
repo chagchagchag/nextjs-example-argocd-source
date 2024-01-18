@@ -1,4 +1,4 @@
-name: "[BACKEND-CACHE] Build"
+name: "[FRONTEND] Build & DEPLOY"
 on:
   push:
     branches:
