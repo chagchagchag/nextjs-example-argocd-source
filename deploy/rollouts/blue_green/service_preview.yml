@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-example-service-bluegreen-preview
+spec:
+  type: ClusterIP
+  selector:
+    app: nextjs-example-rollout-bluegreen
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: nextjs-example-rollout-bluegreen
+  
+spec:
+  replicas: 2
+  strategy:
+    blueGreen:
+      activeService: nextjs-example-service-bluegreen-active
+      previewService: nextjs-example-service-bluegreen-active
+      autoPromotionEnabled: false
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: nextjs-example-rollout-bluegreen
+  template:
+    metadata:
+      labels:
+        app: nextjs-example-rollout-bluegreen
+    spec:
+      containers:
+        - name: nextjs-example-rollout-bluegreen
+          image: nextjs-example-rollout-bluegreen-image
+          # envFrom:
+          #   - configMapRef:
+          #       name: nextjs-example-configmap
+     
