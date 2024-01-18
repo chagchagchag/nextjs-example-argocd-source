@@ -9,5 +9,5 @@ resources:
 images:
 - name: chagchagchag/nextjs-example-rollout-bluegreen-image
   newName: chagchagchag/nextjs-example-rollout-bluegreen-image
-  newTag: "asdf"
+  newTag: "v0.0.1"
 namespace: nextjs-example
