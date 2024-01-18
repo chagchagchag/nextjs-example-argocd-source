@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-example-service-canary
+spec:
+  type: ClusterIP
+  selector:
+    app: nextjs-example-rollout-canary
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      name: frontend-port
