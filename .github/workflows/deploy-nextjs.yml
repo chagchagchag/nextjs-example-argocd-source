@@ -6,6 +6,7 @@ on:
     paths:
       - 'app/**'
       - 'public/**'
+      - '.github/workflows/**'
       - 'Dockerfile'
       - 'next.config.js'
       - 'package.json'
@@ -14,7 +15,6 @@ on:
       - 'tsconfig.json'
       - '.gitignore'
       - 'next-env.d.ts'
-      - '.github/workflows'
   
   # workflow_dispatch:
   #   inputs:
