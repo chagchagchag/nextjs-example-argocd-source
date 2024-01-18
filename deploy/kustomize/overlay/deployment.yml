@@ -1,0 +1,21 @@
+# 주로 아래의 내용들을 기반으로 정의
+## 1) cpu, memory 등 성능 조정을 수정하기 위한 내용들
+## 2) development, production 등 배포 Profile 에 따른 namespace 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-example-app
+  namespace: nextjs-example
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: nextjs-example-app
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "512Mi"

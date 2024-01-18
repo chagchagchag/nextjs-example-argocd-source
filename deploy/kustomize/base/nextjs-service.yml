@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-example-service
+  namespace: nextjs-example
+spec:
+  # type: ClusterIP
+  selector:
+    app: nextjs-example-app
+  ports:
+    - protocol: TCP
+      port: 3000
