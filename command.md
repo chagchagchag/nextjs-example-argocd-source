@@ -58,7 +58,7 @@ $ yarn create next-app --typescript
 
 success Installed "create-next-app@14.0.4" with binaries:
       - create-next-app
-√ What is your project named? ... nextjs-app-ts
+√ What is your project named? ... nextjs-argocd-example
 √ Would you like to use ESLint? ... No / Yes
 √ Would you like to use Tailwind CSS? ... No / Yes
 √ Would you like to use `src/` directory? ... No / Yes
@@ -68,7 +68,7 @@ success Installed "create-next-app@14.0.4" with binaries:
 ... 
 
 ## 프로젝트 디렉터리로 이동
-$ cd nextjs-app-ts/
+$ cd nextjs-argocd-example/
 
 
 ## yarn install
@@ -132,7 +132,7 @@ CMD npm run dev
 ## Dockerfile 빌드
 
 ```bash
-$ docker build -t nextjs-app-ts .
+$ docker build -t nextjs-argocd-example .
 ```
 
 <br>
@@ -140,7 +140,7 @@ $ docker build -t nextjs-app-ts .
 docker hub 이미지로 빌드할 것이라면 아래와 같이하자
 
 ```bash
-$ docker build -t chagchagchag/nextjs-app-ts:v0.0.1 .
+$ docker build -t chagchagchag/nextjs-argocd-example:v0.0.1 .
 ```
 
 <br>
@@ -150,7 +150,7 @@ $ docker build -t chagchagchag/nextjs-app-ts:v0.0.1 .
 ## Docker image push
 
 ```bash
-$ docker push chagchagchag/nextjs-app-ts:v0.0.1
+$ docker push chagchagchag/nextjs-argocd-example:v0.0.1
 ```
 
 <br>
@@ -162,7 +162,7 @@ $ docker push chagchagchag/nextjs-app-ts:v0.0.1
 3000 번 포트 구동
 
 ```bash
-$ docker container run --rm -d -p 3000:3000 nextjs-app-ts
+$ docker container run --rm -d -p 3000:3000 nextjs-argocd-example
 ```
 
 확인 : [http://localhost:3000](http://localhost:3000)
@@ -176,7 +176,7 @@ $ docker container run --rm -d -p 3000:3000 nextjs-app-ts
 포트를 다르게 해서 구동하고 싶다면 아래와 같이 수행한다.
 
 ```bash
-$ docker container run --rm -d -p 3001:3000 nextjs-app-ts
+$ docker container run --rm -d -p 3001:3000 nextjs-argocd-example
 ```
 
 확인 : [http://localhost:3001](http://localhost:3001)
@@ -188,7 +188,7 @@ $ docker container run --rm -d -p 3001:3000 nextjs-app-ts
 만약 컨테이너를 종료시킨 다음에도 이미지를 유지하고 싶다면 --rm 옵션을 빼고 아래와 같이 수행
 
 ```bash
-$ docker container run -d -p 3000:3000 nextjs-app-ts
+$ docker container run -d -p 3000:3000 nextjs-argocd-example
 ```
 
 확인 : [http://localhost:3000](http://localhost:3000)
@@ -200,7 +200,7 @@ $ docker container run -d -p 3000:3000 nextjs-app-ts
 만약 데몬으로 띄우지 않고 front로 돌려서 로그도 같이보고 싶다면 아래와 같이 수행
 
 ```bash
-$ docker container run -p 3000:3000 nextjs-app-ts
+$ docker container run -p 3000:3000 nextjs-argocd-example
 ```
 
 확인 : [http://localhost:3000](http://localhost:3000)
