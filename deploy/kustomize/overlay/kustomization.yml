@@ -6,9 +6,11 @@ patches:
 #   - path: ./pvc.yml
 #   - path: ./service.yml
 resources:
-  - ../base
+- ../base
 images:
-  - name: chagchagchag/nextjs-argocd-example
-  - newName: chagchagchag/nextjs-argocd-example
-  - newTag: v0.0.2
+- newName: chagchagchag/nextjs-argocd-example
+- name: chagchagchag/nextjs-argocd-example
+- name: nextjs-argocd-example-image
+  newName: chagchagchag/nextjs-argocd-example
+  newTag: "20240119.065920"
 namespace: nextjs-example
