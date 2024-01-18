@@ -58,7 +58,7 @@ jobs:
       - name: make build dir and copy
         run: |
           mkdir -p $BUILD_PATH
-          cp -rf ./* $BUILD_PATH/
+          cp -rf * $BUILD_PATH/
 
       - id: build-image
         name: Build and Tag Image
