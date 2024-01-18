@@ -4,16 +4,16 @@ on:
     branches:
       - main
     paths:
-      - "app/**"
-      - "public/**"
-      - "Dockerfile"
-      - "next.config.js"
-      - "package.json"
-      - "postcss.config.js"
-      - "tailwind.config.ts"
-      - "tsconfig.json"
-      - ".gitignore"
-      - "next-env.d.ts"
+      - 'app/**'
+      - 'public/**'
+      - 'Dockerfile'
+      - 'next.config.js'
+      - 'package.json'
+      - 'postcss.config.js'
+      - 'tailwind.config.ts'
+      - 'tsconfig.json'
+      - '.gitignore'
+      - 'next-env.d.ts'
   workflow_dispatch:
     inputs:
       tag:
