@@ -14,6 +14,7 @@ on:
       - 'tsconfig.json'
       - '.gitignore'
       - 'next-env.d.ts'
+      - '.github/workflows'
   
   # workflow_dispatch:
   #   inputs:
