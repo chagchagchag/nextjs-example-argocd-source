@@ -1,0 +1,87 @@
+name: "[BACKEND-CACHE] Build"
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "app/**"
+      - "public/**"
+      - "Dockerfile"
+      - "next.config.js"
+      - "package.json"
+      - "postcss.config.js"
+      - "tailwind.config.ts"
+      - "tsconfig.json"
+      - ".gitignore"
+      - "next-env.d.ts"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "`x.y.z.nextjs-example.k` 형태로 버전을 입력해주세요. (ex. 0.1.0.nextjs-example.01)"
+        required: true
+        default: 0.0.1.nextjs-example.01
+env:
+  TAG: ${{github.event.inputs.tag}}
+  FRONTEND_DOCKER_HUB_REPOSITORY: ${{secrets.FRONTEND_DOCKER_HUB_REPOSITORY}}
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.version_step.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v2
+      - id: version_step
+        name: set version with current date
+        run: |
+          sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+          echo "tag=$(date +'%Y%m%d.%H%M%S')" >> "$GITHUB_OUTPUT"
+  build:
+    needs: versioning
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: ${{ needs.versioning.outputs.tag }}
+    outputs:
+      tag: ${{ needs.versioning.outputs.tag }}
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+
+      - id: build-image
+        name: Build and Tag Image
+        run: |
+          docker build -t chagchagchag/nextjs-argocd-example:$IMAGE_TAG .
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2.1.0
+        with:
+          username: ${{ secrets.DOCKER_HUB_ID }}
+          password: ${{ secrets.DOCKER_HUB_PW }}
+
+      - name: push
+        run: |
+          docker push chagchagchag/nextjs-argocd-example:$IMAGE_TAG
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Kustomize
+      uses: imranismail/setup-kustomize@v1
+    
+    - name: Checkout kustomize repository
+      uses: actions/checkout@v3
+    
+    - name: Update Kubernetes resources
+      run: |
+        cd deploy
+        kustomize edit set image nextjs-argocd-example-image=${{env.FRONTEND_DOCKER_HUB_REPOSITORY}}:${{needs.build.outputs.tag}}
+    - name: Commit & Push Image
+      uses: actions-js/push@main
+      with:
+        message: '[DEPLOY] Update Image ${{ env.FRONTEND_DOCKER_HUB_REPOSITORY }}:${{ needs.build.outputs.tag }}'
+        branch: main
+        github_token: ${{ secrets.GITHUB_TOKEN }}
