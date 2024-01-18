@@ -95,4 +95,4 @@ jobs:
       with:
         message: '[DEPLOY] Update Image ${{ env.FRONTEND_DOCKER_HUB_REPOSITORY }}:${{ needs.build.outputs.tag }}'
         branch: main
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN_GITHUB }}
