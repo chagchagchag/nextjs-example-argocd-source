@@ -88,7 +88,7 @@ jobs:
     
     - name: Update Kubernetes resources
       run: |
-        cd deploy
+        cd deploy/kustomize/overlay
         kustomize edit set image nextjs-argocd-example-image=${{env.FRONTEND_DOCKER_HUB_REPOSITORY}}:${{needs.build.outputs.tag}}
     - name: Commit & Push Image
       uses: actions-js/push@master
