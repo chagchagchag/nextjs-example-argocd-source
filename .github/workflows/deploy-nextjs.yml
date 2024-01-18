@@ -17,9 +17,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "`x.y.z.nextjs-example.k` 형태로 버전을 입력해주세요. (ex. 0.1.0.nextjs-example.01)"
+        description: "v`x.y.z` 형태로 버전을 입력해주세요. (ex. v0.0.1)"
         required: true
-        default: 0.0.1.nextjs-example.01
+        default: v0.0.1
 env:
   TAG: ${{github.event.inputs.tag}}
   FRONTEND_DOCKER_HUB_REPOSITORY: ${{secrets.FRONTEND_DOCKER_HUB_REPOSITORY}}
