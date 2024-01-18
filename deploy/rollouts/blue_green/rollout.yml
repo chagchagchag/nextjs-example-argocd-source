@@ -8,7 +8,7 @@ spec:
   strategy:
     blueGreen:
       activeService: nextjs-example-service-bluegreen-active
-      previewService: nextjs-example-service-bluegreen-active
+      previewService: nextjs-example-service-bluegreen-preview
       autoPromotionEnabled: false
   revisionHistoryLimit: 5
   selector:
