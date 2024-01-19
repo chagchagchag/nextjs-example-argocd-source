@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+## 클러스터 생성
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ cd cluster/nextjs-argocd-cluster
+
+$ source setup.sh
+```
+<br>
+
+
+## ArgoCD 접속
+[http://localhost:30009](http://localhost:30009) 에 접속<br>
+<br>
+
+
+## nextjs 애플리케이션 구동
+```bash
+$ cd deploy/kustomize/overlay
+
+$ kubectl kustomize ./ | kubectl apply -f -
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 이번 문서에서 문서화 하려고 하는 것
+아래 Before, After 에 해당하는 버전들에 대해 Blue/Green 배포시에는 어떻게 하는지, Canary 배포시에는 어떻게 하는지를 기록하려 함.
+<br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+도커 이미지 저장소 : [hub.docker.com/repository/docker/chagchagchag/nextjs-argocd-example](https://hub.docker.com/repository/docker/chagchagchag/nextjs-argocd-example/general)
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Before (태그 : `v0.0.1`)
+<img src="./docs/img/BEFORE.png"/>
+<br>
 
-## Learn More
+### After (태그 : `v0.0.2`)
+<img src="./docs/img/After.png"/>
+<br>
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
