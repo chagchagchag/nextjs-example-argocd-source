@@ -8,4 +8,4 @@ commonAnnotations:
 resources:
   - nextjs-example.yml
   - nextjs-service.yml
-  - nextjs-ingress.yml
+  # - nextjs-ingress.yml
