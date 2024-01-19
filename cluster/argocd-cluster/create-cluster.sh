@@ -1,7 +1,7 @@
 echo ""
 echo "=== create Cluster & Ingress-Nginx (Ingress Controller) ==="
 echo "[create] cluster creating..."
-kind create cluster --name argocd-cluster --config=argocd-cluster.yml
+kind create cluster --name nextjs-argocd-cluster --config=cluster.yml
 
 echo ""
 echo "[create] create ingress-nginx"
