@@ -1,1 +1,1 @@
-kind delete cluster --name argocd-cluster
+kind delete cluster --name nextjs-argocd-cluster
