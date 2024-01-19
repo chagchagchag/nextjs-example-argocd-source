@@ -1,11 +1,11 @@
-namespace: nextjs-example-app
+namespace: nextjs-example
 # namePrefix: dev-
 # nameSuffix: "-2024.01.13"
-commonLabels:
-  app: nextjs-example
+# commonLabels:
+#   app: nextjs-example
 commonAnnotations:
   gogogo: "홍진호 우승인가요?"
 resources:
   - nextjs-example.yml
   - nextjs-service.yml
-  # - nextjs-ingress.yml
+  - nextjs-ingress.yml
