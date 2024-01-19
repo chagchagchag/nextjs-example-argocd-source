@@ -11,6 +11,19 @@ $ source setup.sh
 [http://localhost:30009](http://localhost:30009) 에 접속<br>
 <br>
 
+## 비밀번호 변경
+디폴트로 지급되는 argo 클러스터의 관리자 계정의 id 는 `admin` 이다.<br>
+
+비밀번호를 확인하기 위해서는 아래 명령을 수행
+```bash
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+<br>
+
+출력된 비밀번호를 [http://localhost:30009](http://localhost:30009) 에서 입력해서 로그인.
+<br>
+이후 비밀번호를 꼭 User Info 메뉴에서 수행해주어야 함.<br>
+<br>
 
 ## nextjs 애플리케이션 구동
 ```bash
