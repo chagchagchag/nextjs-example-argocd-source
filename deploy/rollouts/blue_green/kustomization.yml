@@ -7,7 +7,7 @@ resources:
 - ingress_active.yml
 - ingress_preview.yml
 images:
-- name: chagchagchag/nextjs-example-rollout-bluegreen-image
-  newName: chagchagchag/nextjs-example-rollout-bluegreen-image
+- name: nextjs-example-rollout-bluegreen-image
+  newName: chagchagchag/nextjs-argocd-example
   newTag: "v0.0.1"
 namespace: nextjs-example
