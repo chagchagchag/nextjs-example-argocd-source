@@ -39,3 +39,6 @@ $ kubectl kustomize ./ | kubectl apply -f -
 <img src="./docs/img/AFTER.png"/>
 <br>
 
+> 참고)
+> Next.js 는 초기 node 의존성을 다운로드 받기 까지 굉장한 시간이 소요됩니다. 굉장히 느.......립니다. `kubectl -n nextjs-example get all` 을 통해 리소스 상태를 확인 후 `Running` 상태일때 `http://localhost:3000` 으로 접속하시기 바랍니다.<br>
+> <br>
