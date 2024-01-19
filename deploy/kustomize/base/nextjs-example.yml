@@ -22,7 +22,8 @@ spec:
     spec:
       containers:
       - name: nextjs-example-app
-        image: chagchagchag/nextjs-argocd-example:v0.0.1
+        # image: chagchagchag/nextjs-argocd-example:v0.0.1
+        image: nextjs-argocd-example-image # kustomize 에서 변경가능하도록 지정 
         imagePullPolicy: Always
         ports:
           - containerPort: 3000
