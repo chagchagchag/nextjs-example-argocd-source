@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: nextjs-example-rollout-bluegreen
-  namespace: nextjs-example
-  
+  # namespace: nextjs-example
+
 spec:
   replicas: 2
   strategy:
