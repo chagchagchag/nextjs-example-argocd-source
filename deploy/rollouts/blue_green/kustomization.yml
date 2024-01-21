@@ -4,8 +4,8 @@ resources:
 - rollout.yml
 - service_active.yml
 - service_preview.yml
-- ingress_active.yml # Amazon, GCP 등 ALB 의 동적 추가가 가능한 인프라 제공 서비스에서만 사용 가능
-- ingress_preview.yml # Amazon, GCP 등 ALB 의 동적 추가가 가능한 인프라 제공 서비스에서만 사용 가능
+- ingress_active.yml
+- ingress_preview.yml
 images:
 - name: nextjs-example-rollout-bluegreen-image
   newName: chagchagchag/nextjs-argocd-example
