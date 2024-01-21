@@ -9,5 +9,5 @@ resources:
 images:
 - name: nextjs-example-rollout-bluegreen-image
   newName: chagchagchag/nextjs-argocd-example
-  newTag: "v0.0.2"
+  newTag: "v0.0.1"
 namespace: nextjs-example

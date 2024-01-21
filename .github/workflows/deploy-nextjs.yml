@@ -7,6 +7,7 @@ on:
       - 'app/**'
       - 'public/**'
       - '.github/workflows/**'
+      - 'deploy/**'
       - 'Dockerfile'
       - 'next.config.js'
       - 'package.json'
